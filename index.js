@@ -58,7 +58,7 @@ io.on("connection", async (socket) => {
         peer.join(roomName);
         io.of("/")
           .to(roomName)
-          .emit("chatStart", "You are now chatting with a random stranger");
+          .emit("chatStart", "You are now chatting with a random stranger. Maybe say hello?");
 
         break;
       }
