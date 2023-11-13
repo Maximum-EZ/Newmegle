@@ -5,7 +5,15 @@ const path = require("path");
 
 app.use(express.static(__dirname + "/public"));
 
-const PORT = process.env.PORT || 8080;
+app.get("/encrypted-1", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "chat.html"));
+});
+
+app.get("/encrypted-2", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "video.html"));
+});
+
+const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () =>
   console.log(`Server has started on port ${PORT}`)
 );
