@@ -1,48 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="icon" href="./img/logo.png">
-    <title>Newmegle - "The NEW Omegle"</title>
-  </head>
+<html>
 
-  <body>
-    <section class="navbar">
-      <img class="logo" src="./img/logo.png" alt="logo" />
-      <h2 class="description">Talk to strangers!</h2>
-      <h2 class="online"></h2>
-    </section>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat App</title>
+  <link rel="icon" href="img/favicon.png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/chat.css" />
+  <link rel="stylesheet" href="css/chat-phone.css" />
+  <style></style>
+</head>
 
-    <main class="main">
-      <section class="conversation"></section>
+<body>
+  <div id="main">
+    <!-- top bar -->
+    <div id="top-bar">
+      <div id="logo">
+        <img src="/assets/logo.svg" alt="Ajnabee">
+      </div>
+      <div id="top-right">
+        <div id="peopleOnline">
+          <p><span>173</span>+ online now</p>
+        </div>
+        <button id="feedback-btn" class="button">Provide Feedback</button>
+      </div>
+    </div>
 
-      <form class="form">
-        <button type="button" class="btn start bottom-left-radius" id="start">
-          Start
-        </button>
-        <button type="button" class="btn bottom-left-radius hide" id="stop">
-          Stop
-        </button>
-        <button
-          type="button"
-          class="btn bottom-left-radius bold hide"
-          id="really">
-          Really?
-        </button>
-        <textarea name="text" id="text" class="textarea" disabled></textarea>
-        <button
-          type="submit"
-          id="send"
-          class="btn bottom-right-radius"
-          disabled>
-          Send
-        </button>
+    <!-- message area -->
+    <div id="message-area">
+      <div id="messages"></div>
+      <div id="typing" style="display: none" class="message">Stranger is typing...</div>
+    </div>
+
+    <!-- input area -->
+    <div id="input-area">
+      <button class="button" id="skip-btn">Skip<span>Esc</span></button>
+      <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off" />
+      <button class="button" id="send-btn">Send<span>Enter</span></button>
+    </div>
+  </div>
+
+  <!-- feedback popup -->
+  <div id="feedbackModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Provide Feedback</h2>
+      <form id="feedbackForm">
+        <textarea id="feedbackText" rows="10" placeholder="Your feedback..." required></textarea>
+        <input type="submit" class="button" id="submit-btn" value="Submit" />
       </form>
-    </main>
+    </div>
+  </div>
 
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="./script.js"></script>
-  </body>
+  <script defer src="./js/main.js"></script>
+  <script defer src="./js/chat.js" type="module"></script>
+</body>
+
 </html>
